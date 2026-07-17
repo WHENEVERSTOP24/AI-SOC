@@ -1,4 +1,10 @@
-import win32evtlog
+# ─── Graceful win32evtlog import (Windows only) ───
+try:
+    import win32evtlog
+    SYSMON_AVAILABLE = True
+except ImportError:
+    win32evtlog = None
+    SYSMON_AVAILABLE = False
 
 from event_parser import parse_event
 from event_normalizer import normalize_event
@@ -30,6 +36,9 @@ def get_latest_event_xml():
     the raw XML.
     """
 
+    if not SYSMON_AVAILABLE:
+        return None
+
     log_name = "Microsoft-Windows-Sysmon/Operational"
 
     handle = win32evtlog.EvtQuery(
@@ -58,6 +67,9 @@ def get_recent_event_xml(limit=50):
     Reads the most recent Sysmon events
     and returns a list of XML strings.
     """
+
+    if not SYSMON_AVAILABLE:
+        return []
 
     log_name = "Microsoft-Windows-Sysmon/Operational"
 

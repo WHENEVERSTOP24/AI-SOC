@@ -1,11 +1,24 @@
 print("LOADED REAL_ANALYZER VERSION 123")
 
-import win32evtlog
+# ─── Graceful win32evtlog import (Windows only) ───
+try:
+    import win32evtlog
+    SYSMON_AVAILABLE = True
+except ImportError:
+    win32evtlog = None
+    SYSMON_AVAILABLE = False
+
 import requests
 from detections import detect_threat
 
 
 def analyze_latest_event():
+
+    if not SYSMON_AVAILABLE:
+        return {
+            "detection": {},
+            "ai_summary": "Sysmon (win32evtlog) not available on this system."
+        }
 
     server = "localhost"
     logtype = "Microsoft-Windows-Sysmon/Operational"
@@ -166,6 +179,9 @@ print("REACHED GET_RECENT_EVENTS")
 
 
 def get_recent_events(limit=10):
+
+    if not SYSMON_AVAILABLE:
+        return []
 
     server = "localhost"
     logtype = "Microsoft-Windows-Sysmon/Operational"

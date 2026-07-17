@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-soc-bg text-soc-text font-sans antialiased selection:bg-soc-accent/30;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Custom scrollbar — refined for premium SOC feel */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B1020;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E2A45;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8B5CF6;
+  }
+}
+
+@layer components {
+  /* Premium card shell — reusable base styling */
+  .card-premium {
+    @apply bg-soc-card border border-soc-border/60 rounded-xl shadow-card
+           transition-all duration-200 ease-out;
+  }
+  .card-premium:hover {
+    @apply shadow-card-hover border-soc-border/80;
+  }
+
+  /* Card with top gradient accent line */
+  .card-premium-accent {
+    @apply card-premium relative overflow-hidden;
+  }
+  .card-premium-accent::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-soc-accent/60 via-soc-accentSecondary/40 to-transparent;
+  }
+
+  /* Pill badge base */
+  .badge-pill {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border;
+  }
+
+  /* Subtle glass effect for overlays */
+  .glass-panel {
+    @apply bg-soc-surface/60 backdrop-blur-sm border border-soc-border/40 rounded-xl;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-soc-accent to-soc-accentSecondary;
+  }
+}

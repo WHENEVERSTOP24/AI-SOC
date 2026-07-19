@@ -1,4 +1,4 @@
-print("LOADED REAL_ANALYZER VERSION 123")
+print("LOADED REAL_ANALYZER VERSION 124 - Linux compatibility patch")
 
 # ─── Graceful win32evtlog import (Windows only) ───
 try:

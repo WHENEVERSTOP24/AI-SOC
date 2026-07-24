@@ -18,6 +18,8 @@ AI-SOC is an AI-assisted Security Operations Center designed to simulate how mod
 Instead of simply displaying alerts, AI-SOC correlates security events into incidents, maps them to the MITRE ATT&CK framework, and generates analyst-friendly explanations using a locally hosted Large Language Model (Ollama).
 
 The project demonstrates how Artificial Intelligence can improve Security Operations by reducing investigation time and helping analysts understand threats faster.
+
+
 Website link - https://ai-soc-tau.vercel.app/
 ---
 

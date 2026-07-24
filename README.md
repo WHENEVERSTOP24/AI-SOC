@@ -131,6 +131,26 @@ This design preserves privacy while avoiding cloud-hosted LLM costs.
 
 # 🌐 Live Demo
 
+# Live Screenshots
+
+# Dashboard
+<img width="953" height="437" alt="image" src="https://github.com/user-attachments/assets/418726bc-e100-46e8-80c6-7e195da5df2d" />
+
+# Alert 
+<img width="959" height="435" alt="image" src="https://github.com/user-attachments/assets/87f60e96-5079-4114-a6a7-88af18e0578a" />
+
+# AI Analysis
+<img width="224" height="401" alt="image" src="https://github.com/user-attachments/assets/f7d5ea72-1253-4301-b38c-0abfbed42f7f" />
+
+# Incident Timeline
+<img width="541" height="416" alt="image" src="https://github.com/user-attachments/assets/cffd9e5c-0bb3-4398-af91-1641f12770f4" />
+
+# Investigation Graph
+<img width="556" height="404" alt="image" src="https://github.com/user-attachments/assets/e123ce81-4e60-40ca-aacc-9b375537504b" />
+
+# ATTACK Simulator
+<img width="551" height="376" alt="image" src="https://github.com/user-attachments/assets/27b2213b-4760-4f2a-8217-b3e77e64278e" />
+
 ## Frontend
 
 https://ai-soc-tau.vercel.app

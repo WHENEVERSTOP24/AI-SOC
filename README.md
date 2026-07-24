@@ -1,136 +1,26 @@
 # 🛡️ AI-SOC
-### AI-Powered Security Operations Center for Intelligent Threat Detection & Incident Response
+### AI-Powered Security Operations Center with Local LLM Integration
 
-> A modern Security Operations Center (SOC) platform that combines real-time detection, MITRE ATT&CK mapping, incident correlation, and Large Language Models (LLMs) to help security analysts investigate threats faster.
+AI-SOC is an intelligent Security Operations Center (SOC) platform that detects, correlates, investigates, and explains security events collected from Microsoft Sysmon logs.
 
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
-![React](https://img.shields.io/badge/React-TypeScript-61DAFB)
-![Vite](https://img.shields.io/badge/Vite-Frontend-646CFF)
-![License](https://img.shields.io/badge/License-MIT-green)
+Unlike traditional dashboards, AI-SOC combines rule-based detection, incident correlation, MITRE ATT&CK mapping, investigation timelines, attack narratives, and local Large Language Models (LLMs) to provide analyst-friendly security investigations.
 
 ---
 
-# 🚀 Overview
+# 🚀 Features
 
-AI-SOC is an AI-assisted Security Operations Center designed to simulate how modern SOC teams detect, investigate, and respond to cyber threats.
-
-Instead of simply displaying alerts, AI-SOC correlates security events into incidents, maps them to the MITRE ATT&CK framework, and generates analyst-friendly explanations using a locally hosted Large Language Model (Ollama).
-
-The project demonstrates how Artificial Intelligence can improve Security Operations by reducing investigation time and helping analysts understand threats faster.
-
-
-Website link - https://ai-soc-tau.vercel.app/
----
-
-# ✨ Features
-
-## 📊 SOC Dashboard
-
-- Live security dashboard
-- Risk Gauge
-- Active alerts
-- Open incidents
-- MITRE ATT&CK coverage
-- Security statistics
-
----
-
-## 🚨 Threat Detection
-
-Detects suspicious activities including:
-
-- PowerShell Abuse
-- RunDLL32 Execution
-- CertUtil Download
-- Scheduled Task Abuse
-- LOLBins
-- Command Execution
-- Additional custom detection rules
-
----
-
-## 🤖 AI Threat Analysis
-
-Powered by **Ollama**
-
-For every alert AI-SOC generates:
-
-- Executive Summary
-- Threat Explanation
-- Technical Analysis
+- Real-time Sysmon log analysis
+- Rule-based threat detection
+- Risk scoring engine
+- Incident correlation engine
+- Investigation Graph
 - MITRE ATT&CK Mapping
-- Recommended Mitigation
-- Risk Assessment
-
----
-
-## 🔗 Incident Correlation
-
-Automatically groups related alerts into security incidents using:
-
-- Host correlation
-- User correlation
-- Temporal correlation
-- Process relationships
-
----
-
-## 🕸 Investigation Graph
-
-Visual graph showing:
-
-Host
-
-↓
-
-Processes
-
-↓
-
-Alerts
-
-↓
-
-MITRE Techniques
-
-Helping analysts understand attack progression visually.
-
----
-
-## 📖 Incident Timeline
-
-Chronological timeline of attack events including:
-
-- Detection timestamps
-- Alert creation
-- AI analysis
-- Correlation events
-
----
-
-## 🎯 MITRE ATT&CK Integration
-
-Each alert is mapped to:
-
-- Technique ID
-- Technique Name
-- Attack Tactic
-
-Providing standardized threat intelligence.
-
----
-
-## ⚔ Attack Simulator
-
-Built-in simulator capable of generating realistic attack scenarios including:
-
-- PowerShell Attack
-- RunDLL32 Abuse
-- CertUtil Download
-- Scheduled Task Persistence
-
-Used for testing the detection pipeline without requiring malware.
+- Timeline Builder
+- Attack Narrative Generation
+- AI-generated SOC summaries
+- Built-in Attack Simulator
+- Interactive Dashboard
+- Investigation Reports
 
 ---
 
@@ -140,43 +30,45 @@ Used for testing the detection pipeline without requiring malware.
                 Windows Sysmon
                       │
                       ▼
-             Event Normalization
+              Event Parser
                       │
                       ▼
-             Detection Engine
+            Event Normalizer
                       │
                       ▼
-             Alert Manager
+           Detection Engine
                       │
                       ▼
-          Incident Correlation Engine
+              Risk Engine
                       │
-          ┌───────────┴───────────┐
-          ▼                       ▼
-   MITRE ATT&CK Mapping      AI Analysis
-                                  │
-                              Ollama LLM
-                                  │
-                                  ▼
-                          Security Explanation
-                                  │
-                                  ▼
-                        React Dashboard (Frontend)
+                      ▼
+            Alert Management
+                      │
+                      ▼
+         Correlation Engine
+                      │
+                      ▼
+        Investigation Builder
+      ┌──────────────┼──────────────┐
+      │              │              │
+Timeline      MITRE Mapping   Recommendations
+      │              │              │
+      └──────────────┼──────────────┘
+                     ▼
+              AI Explanation
+             (Local Ollama)
 ```
 
 ---
 
-# 🛠 Technology Stack
+# 🛠 Tech Stack
 
 ## Frontend
 
 - React
 - TypeScript
 - Vite
-- Axios
-- React Router
-
----
+- Tailwind CSS
 
 ## Backend
 
@@ -184,62 +76,81 @@ Used for testing the detection pipeline without requiring malware.
 - Python
 - Uvicorn
 
----
-
 ## AI
 
 - Ollama
-- Local LLM
+- Llama 3 / Mistral / Any Local Model
+
+## Security
+
+- Microsoft Sysmon
+- MITRE ATT&CK Framework
 
 ---
 
-## Detection
+# 🤖 AI Analysis
 
-- Windows Sysmon
-- Custom Detection Rules
+AI-SOC performs AI-powered investigation summaries using **Ollama running locally**.
+
+The LLM receives:
+
+- Investigation Timeline
+- Detected Techniques
+- Alert Severity
+- Incident Context
 - MITRE ATT&CK Mapping
 
----
+and produces:
 
-# 📸 Screenshots
-
-## Dashboard
-
-> *(Add Screenshot)*
-
----
-
-## Alerts
-
-> *(Add Screenshot)*
+- Executive Summary
+- Technical Analysis
+- Risk Explanation
+- Mitigation Recommendations
 
 ---
 
-## AI Analysis
+# ⚠ Deployment Note
 
-> *(Add Screenshot)*
+The public deployment demonstrates the complete AI-SOC platform including:
+
+- Dashboard
+- Alerts
+- Incidents
+- Investigation
+- Attack Simulator
+- Incident Correlation
+- MITRE Mapping
+
+However, **AI Analysis is intentionally disabled in the cloud deployment.**
+
+The AI engine depends on a locally running Ollama instance and therefore only functions in the local development environment.
+
+This design preserves privacy while avoiding cloud-hosted LLM costs.
 
 ---
 
-## Investigation Graph
+# 🌐 Live Demo
 
-> *(Add Screenshot)*
+## Frontend
+
+https://ai-soc-tau.vercel.app
+
+## Backend API
+
+https://ai-soc-dbym.onrender.com
+
+Swagger Documentation
+
+https://ai-soc-dbym.onrender.com/docs
 
 ---
 
-## Attack Simulator
+# 📦 Local Installation
 
-> *(Add Screenshot)*
-
----
-
-# ⚙ Installation
-
-## Clone
+## Clone Repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/AI-SOC.git
-
 cd AI-SOC
 ```
 
@@ -255,7 +166,7 @@ pip install -r requirements.txt
 python -m uvicorn api:app --reload
 ```
 
-Backend runs on
+Backend runs at
 
 ```
 http://localhost:8000
@@ -273,7 +184,7 @@ npm install
 npm run dev
 ```
 
-Frontend runs on
+Frontend runs at
 
 ```
 http://localhost:5173
@@ -281,83 +192,107 @@ http://localhost:5173
 
 ---
 
-# AI Requirements
+# 🤖 Running AI Analysis
 
 Install Ollama
 
-Download a supported model
+https://ollama.com/
 
-Example:
+Pull a model
 
+```bash
+ollama pull llama3
 ```
-ollama pull qwen2.5:3b
+
+or
+
+```bash
+ollama pull mistral
 ```
 
-Start Ollama before running AI-SOC.
+Start Ollama
+
+```bash
+ollama serve
+```
+
+AI-SOC will automatically connect to the local Ollama server for investigation summaries.
 
 ---
 
-# Folder Structure
+# 🎯 Supported Detection Rules
 
-```
-AI-SOC
-
-├── Backend
-│
-├── Frontend
-│
-├── README.md
-│
-└── screenshots
-```
+- PowerShell Execution
+- Encoded PowerShell
+- CMD Execution
+- WMIC Abuse
+- CertUtil Download
+- MSHTA Execution
+- Rundll32 Abuse
+- Regsvr32 Abuse
+- Suspicious Network Connections
+- File Creation Events
 
 ---
 
-# Future Improvements
+# 🧪 Built-in Attack Simulator
 
-- WebSocket live updates
+AI-SOC includes a safe attack simulator for testing detection rules.
+
+Supported simulations:
+
+- PowerShell
+- Encoded PowerShell
+- CMD
+- CertUtil
+- WMIC
+- MSHTA
+- Rundll32
+- Regsvr32
+
+---
+
+# 📈 Investigation Features
+
+- Incident Timeline
+- Attack Story
+- Detection Summary
+- MITRE ATT&CK Mapping
+- Risk Score
+- Recommendations
+- AI Summary
+
+---
+
+# 📚 Future Work
+
 - Multi-host monitoring
+- Wazuh integration
 - Sigma rule support
-- YARA integration
+- YARA scanning
+- SOAR playbooks
+- VirusTotal integration
 - Threat Intelligence feeds
-- SIEM integrations
-- Multi-user authentication
-- Cloud deployment
+- Multi-agent AI investigations
 
 ---
 
-# Research Direction
-
-This project also serves as the foundation for future research exploring:
-
-> **Can AI-generated, analyst-friendly security explanations reduce investigation time and improve attack mitigation compared to traditional SOC alerts?**
-
-The research will evaluate:
-
-- Investigation speed
-- Analyst comprehension
-- Alert prioritization
-- Human-AI collaboration
-- SOC efficiency
-
----
-
-# Author
+# 👨‍💻 Author
 
 **Anubhav Rajput**
 
 Computer Science (Cybersecurity)
 
-AI Security • SOC Engineering • Offensive Security
+IILM University
 
 GitHub:
 https://github.com/YOUR_USERNAME
 
 LinkedIn:
-YOUR_LINKEDIN
+https://linkedin.com/in/YOUR_LINKEDIN
 
 ---
 
-# License
+# 📄 License
 
 MIT License
